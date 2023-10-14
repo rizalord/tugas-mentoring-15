@@ -1,296 +1,518 @@
 {
 	"info": {
-		"_postman_id": "f346f992-0065-4e80-a3ea-ade373ff0fc2",
-		"name": "RESTAPI_JWT_CI",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "cc3d4b9c-55c6-4249-9f2e-9a7e2e0d7636",
+		"name": "Mentoring 14 - Rest API and JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8647915"
 	},
 	"item": [
 		{
-			"name": "{{url}}/register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "username",
-							"value": "newUser1",
-							"description": "",
-							"type": "text"
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "newUser1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user1@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
 						},
-						{
-							"key": "email",
-							"value": "user1@example.com",
-							"description": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "123456",
-							"description": "",
-							"type": "text"
+						"url": {
+							"raw": "{{host}}/auth/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
 						}
-					]
-				},
-				"url": {
-					"raw": "{{url}}/register",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "{{url}}/login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "username",
-							"value": "newUser1",
-							"description": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "123456",
-							"description": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{url}}/login",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "{{url}}/logout",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "username",
-							"value": "newUser1",
-							"description": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "123456",
-							"description": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{url}}/logout",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"logout"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "{{url}}/reGenToken",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "username",
-							"value": "newUser1",
-							"description": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{url}}/reGenToken",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"reGenToken"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "{{url}}/product",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjMxOTc1Njk2fQ.NM6M42MHJk0bnQBhk7riBqufIKvIp-L1WUR1KguUaEQ"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "name",
-							"value": "Chowmin",
-							"description": "",
-							"type": "text"
-						},
-						{
-							"key": "price",
-							"value": "45.00",
-							"description": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{url}}/product",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"product"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "{{url}}/product",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInVzZXJuYW1lIjoibmV3VXNlcjEiLCJBUElfVElNRSI6MTYzMTk3NDk1MH0.cr2plOf1-7t3x30zQksKx0a8kyJFnGVmGLFOnxETufg"
-					}
-				],
-				"body": {},
-				"url": {
-					"raw": "{{url}}/product",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"product"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "{{url}}/product/1",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInVzZXJuYW1lIjoibmV3VXNlcjEiLCJBUElfVElNRSI6MTYzMTk3NDk1MH0.cr2plOf1-7t3x30zQksKx0a8kyJFnGVmGLFOnxETufg"
-					}
-				],
-				"body": {},
-				"url": {
-					"raw": "{{url}}/product/1",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"product",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "{{url}}/product/3",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjMxOTc3MzAzfQ._dePQzHnwS8aWaLr10pf1UAhHkHhxhJhVhO7Yr4zn10"
 					},
-					{
-						"key": "name",
-						"value": "Bhuna Chicken"
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "newUser1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
 					},
-					{
-						"key": "price",
-						"value": "120.00"
-					}
-				],
-				"body": {},
-				"url": {
-					"raw": "{{url}}/product/3",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"product",
-						"3"
-					]
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "newUser1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/auth/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReGenToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "newUser1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/auth/reGenToken",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"reGenToken"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "{{url}}/product/4",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjMxOTc2NTU2fQ.Px4XuHXb3Bb0bafu8XnbmnbRG0OkQ6HQSb0U71swyUM"
-					}
-				],
-				"body": {},
-				"url": {
-					"raw": "{{url}}/product/4",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"product",
-						"4"
-					]
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInVzZXJuYW1lIjoibmV3VXNlcjEiLCJBUElfVElNRSI6MTYzMTk3NDk1MH0.cr2plOf1-7t3x30zQksKx0a8kyJFnGVmGLFOnxETufg",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/categories",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInVzZXJuYW1lIjoibmV3VXNlcjEiLCJBUElfVElNRSI6MTYzMTk3NDk1MH0.cr2plOf1-7t3x30zQksKx0a8kyJFnGVmGLFOnxETufg",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/categories/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIyIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3MjU5MjY4fQ.xiDRnptk9fUiGNxNCh2rpmqRSNv7JTjfb6srg3TOn4U",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_name",
+									"value": "Clothes",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "45.00",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/categories",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjMxOTc3MzAzfQ._dePQzHnwS8aWaLr10pf1UAhHkHhxhJhVhO7Yr4zn10",
+								"disabled": true
+							},
+							{
+								"key": "category_name",
+								"value": "Jeans"
+							},
+							{
+								"key": "price",
+								"value": "120.00",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_name",
+									"value": "hello",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/categories/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjMxOTc2NTU2fQ.Px4XuHXb3Bb0bafu8XnbmnbRG0OkQ6HQSb0U71swyUM",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/categories/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories",
+								"4"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInVzZXJuYW1lIjoibmV3VXNlcjEiLCJBUElfVElNRSI6MTYzMTk3NDk1MH0.cr2plOf1-7t3x30zQksKx0a8kyJFnGVmGLFOnxETufg",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/products",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInVzZXJuYW1lIjoibmV3VXNlcjEiLCJBUElfVElNRSI6MTYzMTk3NDk1MH0.cr2plOf1-7t3x30zQksKx0a8kyJFnGVmGLFOnxETufg",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/products/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3MjA0OTc1fQ.XctaYamyT_NL9itQu16pCp4EcRrkhKq5lSBifI38r9Y",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_name",
+									"value": "Chowmin",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "500",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test Description",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/products",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjMxOTc3MzAzfQ._dePQzHnwS8aWaLr10pf1UAhHkHhxhJhVhO7Yr4zn10"
+							},
+							{
+								"key": "product_name",
+								"value": "Bhuna Chicken"
+							},
+							{
+								"key": "category_id",
+								"value": "4"
+							},
+							{
+								"key": "price",
+								"value": "100",
+								"type": "text"
+							},
+							{
+								"key": "quantity",
+								"value": "1000",
+								"type": "text"
+							},
+							{
+								"key": "description",
+								"value": "Update description",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/products/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjMxOTc2NTU2fQ.Px4XuHXb3Bb0bafu8XnbmnbRG0OkQ6HQSb0U71swyUM",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/products/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIyIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3MjYzMTc0fQ.OWjUxt9T7_C9MvlwohdhKIdG5Ym1lYkQY3Ms1hx7yu8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"variable": [
 		{
-			"id": "c4829003-f393-4064-aecb-ef7320644c01",
-			"key": "url",
-			"value": "http://localhost/api_jwt_ci3",
-			"type": "string",
-			"description": ""
+			"key": "host",
+			"value": "http://localhost/mentoring-14/api/v1",
+			"type": "string"
 		}
 	]
 }

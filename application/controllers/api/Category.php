@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Product class.
+ * Category class.
  * 
  * @extends REST_Controller
  */
@@ -9,7 +9,7 @@ require APPPATH . '/libraries/REST_Controller.php';
 
 use Restserver\Libraries\REST_Controller;
 
-class Product extends REST_Controller
+class Category extends REST_Controller
 {
 
     /**
@@ -21,7 +21,7 @@ class Product extends REST_Controller
     {
         parent::__construct();
         $this->load->library('Authorization_Token');
-        $this->load->model('Product_model');
+        $this->load->model('Category_model');
     }
 
     /**
@@ -37,12 +37,12 @@ class Product extends REST_Controller
             if ($decodedToken['status']) {
                 // ------- Main Logic part -------
                 if (!empty($id)) {
-                    $data = $this->Product_model->show($id);
+                    $data = $this->Category_model->show($id);
                 } else {
-                    $data = $this->Product_model->show();
+                    $data = $this->Category_model->show();
                 }
                 $this->response([
-                    'message' => 'Product fetched successfully.',
+                    'message' => 'Category fetched successfully.',
                     'data' => $data
                 ], REST_Controller::HTTP_OK);
                 // ------------- End -------------
@@ -71,11 +71,11 @@ class Product extends REST_Controller
             if ($decodedToken['status']) {
                 // ------- Main Logic part -------
                 $input = $this->input->post();
-                $id = $this->Product_model->insert($input);
-                $data = $this->Product_model->show($id);
+                $id = $this->Category_model->insert($input);
+                $data = $this->Category_model->show($id);
 
                 $this->response([
-                    'message' => 'Product created successfully.',
+                    'message' => 'Category created successfully.',
                     'data' => $data
                 ], REST_Controller::HTTP_CREATED);
                 // ------------- End -------------
@@ -103,20 +103,15 @@ class Product extends REST_Controller
             $decodedToken = $this->authorization_token->validateToken($headers['Authorization']);
             if ($decodedToken['status']) {
                 // ------- Main Logic part -------
-                // $input = $this->put();
                 $headers = $this->input->request_headers();
-                $data['product_name'] = $headers['product_name'];
-                $data['category_id  '] = $headers['category_id'];
-                $data['price'] = $headers['price'];
-                $data['quantity'] = $headers['quantity'];
-                $data['description'] = $headers['description'];
-                $response = $this->Product_model->update($data, $id);
-                $product = $this->Product_model->show($id);
+                $data['category_name'] = $headers['category_name'];
+                $response = $this->Category_model->update($data, $id);
+                $category = $this->Category_model->show($id);
 
                 $response > 0
                     ? $this->response([
-                        'message' => 'Product updated successfully.',
-                        'data' => $product
+                        'message' => 'Category updated successfully.',
+                        'data' => $category
                     ], REST_Controller::HTTP_OK)
                     : $this->response([
                         'message' => 'Not updated',
@@ -148,7 +143,7 @@ class Product extends REST_Controller
             $decodedToken = $this->authorization_token->validateToken($headers['Authorization']);
             if ($decodedToken['status']) {
                 // ------- Main Logic part -------
-                $response = $this->Product_model->delete($id);
+                $response = $this->Category_model->delete($id);
 
                 $response > 0
                     ? $this->response([

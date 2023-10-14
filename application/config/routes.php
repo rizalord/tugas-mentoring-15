@@ -54,11 +54,20 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 /* API */
-$route['api/products'] = 'api/Product';
-$route['api/products/(:any)'] = 'api/Product/$1';
-$route['api/products/(:num)']['PUT'] = 'api/Product/$1';
-$route['api/products/(:num)']['DELETE'] = 'api/Product/$1';
-$route['api/auth/register'] = 'api/User/register';
-$route['api/auth/login'] = 'api/User/login';
-$route['api/auth/logout'] = 'api/User/logout';
-$route['api/auth/reGenToken'] = 'api/Token/reGenToken';
+
+$route['api/v1'] = 'api/Welcome/index';
+
+$route['api/v1/auth/register'] = 'api/User/register';
+$route['api/v1/auth/login'] = 'api/User/login';
+$route['api/v1/auth/logout'] = 'api/User/logout';
+$route['api/v1/auth/reGenToken'] = 'api/Token/reGenToken';
+
+$route['api/v1/categories'] = 'api/Category';
+$route['api/v1/categories/(:any)'] = 'api/Category/$1';
+$route['api/v1/categories/(:num)']['PUT'] = 'api/Category/$1';
+$route['api/v1/categories/(:num)']['DELETE'] = 'api/Category/$1';
+
+$route['api/v1/products'] = 'api/Product';
+$route['api/v1/products/(:any)'] = 'api/Product/$1';
+$route['api/v1/products/(:num)']['PUT'] = 'api/Product/$1';
+$route['api/v1/products/(:num)']['DELETE'] = 'api/Product/$1';

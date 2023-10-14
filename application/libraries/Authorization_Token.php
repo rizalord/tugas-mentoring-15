@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * Authorization_Token
@@ -16,7 +16,7 @@ require_once APPPATH . 'third_party/php-jwt/SignatureInvalidException.php';
 
 use \Firebase\JWT\JWT;
 
-class Authorization_Token 
+class Authorization_Token
 {
     /**
      * Token Key
@@ -36,12 +36,12 @@ class Authorization_Token
     /**
      * Token Expire Time
      */
-    protected $token_expire_time; 
+    protected $token_expire_time;
 
 
     public function __construct()
-	{
-        $this->CI =& get_instance();
+    {
+        $this->CI = &get_instance();
 
         /** 
          * jwt config file load
@@ -63,16 +63,14 @@ class Authorization_Token
      */
     public function generateToken($data = null)
     {
-        if ($data AND is_array($data))
-        {
+        if ($data and is_array($data)) {
             // add api time key in user array()
             $data['API_TIME'] = time();
 
             try {
                 return JWT::encode($data, $this->token_key, $this->token_algorithm);
-            }
-            catch(Exception $e) {
-                return 'Message: ' .$e->getMessage();
+            } catch (Exception $e) {
+                return 'Message: ' . $e->getMessage();
             }
         } else {
             return "Token Data Undefined!";
@@ -89,62 +87,51 @@ class Authorization_Token
          * Request All Headers
          */
         $headers = $this->CI->input->request_headers();
-        
+
         /**
          * Authorization Header Exists
          */
         $token_data = $this->tokenIsExist($headers);
-        if($token_data['status'] === TRUE)
-        {
-            try
-            {
+        if ($token_data['status'] === TRUE) {
+            try {
                 /**
                  * Token Decode
                  */
                 try {
-                    $token_decode = JWT::decode($token_data['token'], $this->token_key, array($this->token_algorithm));
-                }
-                catch(Exception $e) {
+                    $bearerToken = (explode(" ", $token_data['token']))[1];
+                    $token_decode = JWT::decode($bearerToken, $this->token_key, array($this->token_algorithm));
+                } catch (Exception $e) {
                     return ['status' => FALSE, 'message' => $e->getMessage()];
                 }
 
-                if(!empty($token_decode) AND is_object($token_decode))
-                {
+                if (!empty($token_decode) and is_object($token_decode)) {
                     // Check Token API Time [API_TIME]
-                    if (empty($token_decode->API_TIME OR !is_numeric($token_decode->API_TIME))) {
-                        
+                    if (empty($token_decode->API_TIME or !is_numeric($token_decode->API_TIME))) {
+
                         return ['status' => FALSE, 'message' => 'Token Time Not Define!'];
-                    }
-                    else
-                    {
+                    } else {
                         /**
                          * Check Token Time Valid 
                          */
                         $time_difference = strtotime('now') - $token_decode->API_TIME;
-                        if( $time_difference >= $this->token_expire_time )
-                        {
+                        if ($time_difference >= $this->token_expire_time) {
                             return ['status' => FALSE, 'message' => 'Token Time Expire.'];
-
-                        }else
-                        {
+                        } else {
                             /**
                              * All Validation False Return Data
                              */
                             return ['status' => TRUE, 'data' => $token_decode];
                         }
                     }
-                    
-                }else{
+                } else {
                     return ['status' => FALSE, 'message' => 'Forbidden'];
                 }
-            }
-            catch(Exception $e) {
+            } catch (Exception $e) {
                 return ['status' => FALSE, 'message' => $e->getMessage()];
             }
-        }else
-        {
+        } else {
             // Authorization Header Not Found!
-            return ['status' => FALSE, 'message' => $token_data['message'] ];
+            return ['status' => FALSE, 'message' => $token_data['message']];
         }
     }
 
@@ -154,7 +141,7 @@ class Authorization_Token
      */
     private function tokenIsExist($headers)
     {
-        if(!empty($headers) AND is_array($headers)) {
+        if (!empty($headers) and is_array($headers)) {
             foreach ($headers as $header_name => $header_value) {
                 if (strtolower(trim($header_name)) == strtolower(trim($this->token_header)))
                     return ['status' => TRUE, 'token' => $header_value];
