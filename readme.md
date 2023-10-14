@@ -14,7 +14,7 @@ Tugas Mentoring belajar mengenai JWT dan REST API dengan menggunakan CodeIgniter
 5. Akses `http://localhost:80` untuk mengakses aplikasi
 
 ### API Documentation
-Dokumentasi API dapat diakses di file `RESTAPI_JWT_CI3.postman_collection.json`` menggunakan Postman
+Dokumentasi API dapat diakses di file `RESTAPI_JWT_CI3.postman_collection.json` menggunakan Postman
 
 ### Credits
 - [CodeIgniter 3](https://codeigniter.com/)
