@@ -511,7 +511,7 @@
 	"variable": [
 		{
 			"key": "host",
-			"value": "http://localhost/mentoring-14/api/v1",
+			"value": "http://34.128.102.158/api/v1",
 			"type": "string"
 		}
 	]
