@@ -26,7 +26,7 @@ class Welcome extends REST_Controller
     public function index_get()
     {
         $this->response([
-            'message' => 'Mentoring 14 REST API dan JWT',
+            'message' => 'Mentoring 15 REST API dan JWT',
             'data' => null
         ], REST_Controller::HTTP_OK);
     }
