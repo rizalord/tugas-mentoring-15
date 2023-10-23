@@ -13,8 +13,6 @@ services:
 
   codeigniter-3:
     build: .
-    ports:
-      - "8000:80"
     volumes:
       - .:/var/www/html
     depends_on:
@@ -37,11 +35,9 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     restart: always
-    ports:
-      - "8080:80"
     environment:
       PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: secretpasswordLOL321
+      MYSQL_ROOT_PASSWORD: secretpassword321
     depends_on:
       - db
 
