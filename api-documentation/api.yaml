@@ -214,7 +214,7 @@ paths:
                   example: '123456'
                 username:
                   type: string
-                  example: newUser0
+                  example: newUser1
       responses:
         '200':
           description: '200'
@@ -618,9 +618,8 @@ paths:
                 category_name:
                   type: string
                   example: Clothes
-                price:
-                  type: string
-                  example: '45.00'
+                  required: 
+                    - category_name
       responses:
         '201':
           description: '200'
@@ -785,20 +784,7 @@ paths:
           schema:
             type: string
             example: Jeans
-        - name: price
-          in: header
-          schema:
-            type: string
-            example: '120.00'
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                category_name:
-                  type: string
-                  example: hello
+          required: true
       responses:
         '200':
           description: Update Category
