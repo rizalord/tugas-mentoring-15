@@ -2,6 +2,7 @@ openapi: 3.0.3
 info:
   title: Mentoring 16 - API Documentation
   version: 1.0.0
+  description: API Documentation menggunakan Swagger untuk tugas mentoring 16 berkaitan dengan materi Rest API dan JWT dari tugas mentoring sebelumnya.
   contact: {}
 
 servers:
