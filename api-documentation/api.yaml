@@ -1,11 +1,11 @@
 openapi: 3.0.3
 info:
-  title: Mentoring 14 - Rest API and JWT
+  title: Mentoring 16 - API Documentation
   version: 1.0.0
   contact: {}
 
 servers:
-  - url: http://34.128.102.158/api/v1
+  - url: http://tugas-16.rizalord.xyz/api/v1
 
 paths:
   /auth/register:
