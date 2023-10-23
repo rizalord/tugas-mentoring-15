@@ -19,12 +19,12 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "newUser1",
+									"value": "newUser100",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "user1@example.com",
+									"value": "user100@example.com",
 									"type": "text"
 								},
 								{
@@ -45,7 +45,176 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "newUser1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "user1@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/auth/register",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:26:09 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "ci_session=926c03a3e5d3a7e47bfbff86576279814bc84928; expires=Sat, 21-Oct-2023 17:26:09 GMT; Max-Age=7200; path=/; HttpOnly"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "175"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Validation rules violated\",\n    \"errors\": {\n        \"username\": \"This username already exists. Please choose another one.\",\n        \"email\": \"The Email field must contain a unique value.\"\n    }\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "newUser100",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "user100@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/auth/register",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:26:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "394"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success register\",\n    \"data\": {\n        \"user\": {\n            \"id\": 8,\n            \"name\": \"newUser100\",\n            \"email\": \"user100@example.com\",\n            \"image\": \"http://34.128.102.158/public/images/default.jpg\"\n        },\n        \"auth\": {\n            \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjgsInVzZXJuYW1lIjoibmV3VXNlcjEwMCIsIkFQSV9USU1FIjoxNjk3OTAyMDE1fQ.Fu-ZmMkv7aI9gCPl6NWjCa13x9ifYKKHoTbIvXiuVao\",\n            \"type\": \"Bearer\",\n            \"expires_at\": \"2023-10-21 16:26:55\"\n        }\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Login",
@@ -78,7 +247,166 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "newUser1",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/auth/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:48:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "ci_session=0da396dd0d79c6b242f690cd72c1bc8e46bf1733; expires=Sat, 21-Oct-2023 17:48:30 GMT; Max-Age=7200; path=/; HttpOnly"
+								},
+								{
+									"key": "Content-Length",
+									"value": "390"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success login\",\n    \"data\": {\n        \"user\": {\n            \"id\": \"6\",\n            \"name\": \"newUser1\",\n            \"email\": \"user12@example.com\",\n            \"image\": \"http://34.128.102.158/public/images/default.jpg\"\n        },\n        \"auth\": {\n            \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiI2IiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3OTAzMzEwfQ.P7yuDXFepe-AuCr9aCmdgVZHzTjXCzeFtcFnzR8H_Jk\",\n            \"type\": \"Bearer\",\n            \"expires_at\": \"2023-10-21 16:48:30\"\n        }\n    }\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "newUser0",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/auth/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:48:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Wrong username or password.\",\n    \"errors\": []\n}"
+						}
+					]
 				},
 				{
 					"name": "Logout",
@@ -111,7 +439,87 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "newUser1",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/auth/logout",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:49:08 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success logout\",\n    \"data\": null\n}"
+						}
+					]
 				},
 				{
 					"name": "ReGenToken",
@@ -139,7 +547,82 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "newUser1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/auth/reGenToken",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"reGenToken"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:49:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiI2IiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3OTAzMzYyfQ.-NuW1zLkW5Lfieh41rLBIfLPjeLKSUZZGGZfCfymtAY\",\n    \"status\": true\n}"
+						}
+					]
 				}
 			]
 		},
@@ -167,7 +650,77 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInVzZXJuYW1lIjoibmV3VXNlcjEiLCJBUElfVElNRSI6MTYzMTk3NDk1MH0.cr2plOf1-7t3x30zQksKx0a8kyJFnGVmGLFOnxETufg",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{host}}/categories",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:52:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "143"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Category fetched successfully.\",\n    \"data\": [\n        {\n            \"category_id\": \"6\",\n            \"category_name\": \"Jeans\"\n        },\n        {\n            \"category_id\": \"7\",\n            \"category_name\": \"T-Shirt\"\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "Get Category",
@@ -181,17 +734,88 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/categories/1",
+							"raw": "{{host}}/categories/6",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"categories",
-								"1"
+								"6"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInVzZXJuYW1lIjoibmV3VXNlcjEiLCJBUElfVElNRSI6MTYzMTk3NDk1MH0.cr2plOf1-7t3x30zQksKx0a8kyJFnGVmGLFOnxETufg",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{host}}/categories/6",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:53:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=98"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Category fetched successfully.\",\n    \"data\": {\n        \"category_id\": \"6\",\n        \"category_name\": \"Jeans\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Create Category",
@@ -230,7 +854,93 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIyIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3MjU5MjY4fQ.xiDRnptk9fUiGNxNCh2rpmqRSNv7JTjfb6srg3TOn4U",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "category_name",
+											"value": "Clothes",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "45.00",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/categories",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:53:27 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Category created successfully.\",\n    \"data\": {\n        \"category_id\": \"8\",\n        \"category_name\": \"Clothes\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Update Category",
@@ -264,17 +974,108 @@
 							]
 						},
 						"url": {
-							"raw": "{{host}}/categories/4",
+							"raw": "{{host}}/categories/8",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"categories",
-								"4"
+								"8"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update Category",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjMxOTc3MzAzfQ._dePQzHnwS8aWaLr10pf1UAhHkHhxhJhVhO7Yr4zn10",
+										"disabled": true
+									},
+									{
+										"key": "category_name",
+										"value": "Jeans"
+									},
+									{
+										"key": "price",
+										"value": "120.00",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "category_name",
+											"value": "hello",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/categories/8",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:54:11 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Category updated successfully.\",\n    \"data\": {\n        \"category_id\": \"8\",\n        \"category_name\": \"Jeans\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete Category",
@@ -288,17 +1089,92 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/categories/4",
+							"raw": "{{host}}/categories/8",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"categories",
-								"4"
+								"8"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjMxOTc2NTU2fQ.Px4XuHXb3Bb0bafu8XnbmnbRG0OkQ6HQSb0U71swyUM",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{host}}/categories/8",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:54:26 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "ci_session=b8b4cda3b3917bf2c92ecc978b21d9561c185d4c; expires=Sat, 21-Oct-2023 17:54:26 GMT; Max-Age=7200; path=/; HttpOnly"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Category deleted successfully.\",\n    \"data\": null\n}"
+						}
+					]
 				}
 			]
 		},
@@ -326,7 +1202,77 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInVzZXJuYW1lIjoibmV3VXNlcjEiLCJBUElfVElNRSI6MTYzMTk3NDk1MH0.cr2plOf1-7t3x30zQksKx0a8kyJFnGVmGLFOnxETufg",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{host}}/products",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:54:43 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "424"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product fetched successfully.\",\n    \"data\": [\n        {\n            \"product_id\": \"5\",\n            \"product_name\": \"Kemaja Putih\",\n            \"category_id\": \"4\",\n            \"price\": \"500.00\",\n            \"quantity\": \"10\",\n            \"description\": \"Test Description\",\n            \"created_at\": \"2023-10-15 05:09:52\",\n            \"updated_at\": null\n        },\n        {\n            \"product_id\": \"6\",\n            \"product_name\": \"Kemeja Hitam\",\n            \"category_id\": \"5\",\n            \"price\": \"500.00\",\n            \"quantity\": \"10\",\n            \"description\": \"Test Description\",\n            \"created_at\": \"2023-10-15 05:10:17\",\n            \"updated_at\": null\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "Get Product",
@@ -340,17 +1286,88 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/products/1",
+							"raw": "{{host}}/products/6",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"products",
-								"1"
+								"6"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInVzZXJuYW1lIjoibmV3VXNlcjEiLCJBUElfVElNRSI6MTYzMTk3NDk1MH0.cr2plOf1-7t3x30zQksKx0a8kyJFnGVmGLFOnxETufg",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{host}}/products/6",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:55:06 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "236"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product fetched successfully.\",\n    \"data\": {\n        \"product_id\": \"6\",\n        \"product_name\": \"Kemeja Hitam\",\n        \"category_id\": \"5\",\n        \"price\": \"500.00\",\n        \"quantity\": \"10\",\n        \"description\": \"Test Description\",\n        \"created_at\": \"2023-10-15 05:10:17\",\n        \"updated_at\": null\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Create Product",
@@ -403,7 +1420,107 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3MjA0OTc1fQ.XctaYamyT_NL9itQu16pCp4EcRrkhKq5lSBifI38r9Y",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "product_name",
+											"value": "Chowmin",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "500",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Test Description",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/products",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:55:20 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "231"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product created successfully.\",\n    \"data\": {\n        \"product_id\": \"7\",\n        \"product_name\": \"Chowmin\",\n        \"category_id\": \"5\",\n        \"price\": \"500.00\",\n        \"quantity\": \"10\",\n        \"description\": \"Test Description\",\n        \"created_at\": \"2023-10-21 15:55:21\",\n        \"updated_at\": null\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Update Product",
@@ -439,17 +1556,110 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/products/3",
+							"raw": "{{host}}/products/7",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"products",
-								"3"
+								"7"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjMxOTc3MzAzfQ._dePQzHnwS8aWaLr10pf1UAhHkHhxhJhVhO7Yr4zn10"
+									},
+									{
+										"key": "product_name",
+										"value": "Bhuna Chicken"
+									},
+									{
+										"key": "category_id",
+										"value": "4"
+									},
+									{
+										"key": "price",
+										"value": "100",
+										"type": "text"
+									},
+									{
+										"key": "quantity",
+										"value": "1000",
+										"type": "text"
+									},
+									{
+										"key": "description",
+										"value": "Update description",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/products/7",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:55:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "241"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product updated successfully.\",\n    \"data\": {\n        \"product_id\": \"7\",\n        \"product_name\": \"Bhuna Chicken\",\n        \"category_id\": \"4\",\n        \"price\": \"100.00\",\n        \"quantity\": \"1000\",\n        \"description\": \"Update description\",\n        \"created_at\": \"2023-10-21 15:55:21\",\n        \"updated_at\": null\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete Product",
@@ -463,17 +1673,88 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/products/3",
+							"raw": "{{host}}/products/7",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"products",
-								"3"
+								"7"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjMxOTc2NTU2fQ.Px4XuHXb3Bb0bafu8XnbmnbRG0OkQ6HQSb0U71swyUM",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{host}}/products/7",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 15:55:58 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Debian)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.30"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Category deleted successfully.\",\n    \"data\": null\n}"
+						}
+					]
 				}
 			]
 		}
@@ -483,7 +1764,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIyIiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3MjYzMTc0fQ.OWjUxt9T7_C9MvlwohdhKIdG5Ym1lYkQY3Ms1hx7yu8",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiI2IiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3OTAzMzEwfQ.P7yuDXFepe-AuCr9aCmdgVZHzTjXCzeFtcFnzR8H_Jk",
 				"type": "string"
 			}
 		]

@@ -1,0 +1,1499 @@
+openapi: 3.0.3
+info:
+  title: Mentoring 14 - Rest API and JWT
+  version: 1.0.0
+  contact: {}
+
+servers:
+  - url: http://34.128.102.158/api/v1
+
+paths:
+  /auth/register:
+    post:
+      tags:
+        - Auth
+      summary: Register
+      description: Register
+      operationId: register
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: user100@example.com
+                password:
+                  type: string
+                  example: '123456'
+                username:
+                  type: string
+                  example: newUser100
+      responses:
+        '200':
+          description: '200'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '394'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:26:55 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      auth:
+                        type: object
+                        properties:
+                          expires_at:
+                            type: string
+                            example: '2023-10-21 16:26:55'
+                          token:
+                            type: string
+                            example: >-
+                              eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjgsInVzZXJuYW1lIjoibmV3VXNlcjEwMCIsIkFQSV9USU1FIjoxNjk3OTAyMDE1fQ.Fu-ZmMkv7aI9gCPl6NWjCa13x9ifYKKHoTbIvXiuVao
+                          type:
+                            type: string
+                            example: Bearer
+                      user:
+                        type: object
+                        properties:
+                          email:
+                            type: string
+                            example: user100@example.com
+                          id:
+                            type: number
+                            example: 8
+                          image:
+                            type: string
+                            example: http://34.128.102.158/public/images/default.jpg
+                          name:
+                            type: string
+                            example: newUser100
+                  message:
+                    type: string
+                    example: Success register
+              examples:
+                '200':
+                  value:
+                    data:
+                      auth:
+                        expires_at: '2023-10-21 16:26:55'
+                        token: >-
+                          eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjgsInVzZXJuYW1lIjoibmV3VXNlcjEwMCIsIkFQSV9USU1FIjoxNjk3OTAyMDE1fQ.Fu-ZmMkv7aI9gCPl6NWjCa13x9ifYKKHoTbIvXiuVao
+                        type: Bearer
+                      user:
+                        email: user100@example.com
+                        id: 8
+                        image: http://34.128.102.158/public/images/default.jpg
+                        name: newUser100
+                    message: Success register
+        '400':
+          description: '400'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: close
+            Content-Length:
+              schema:
+                type: string
+                example: '175'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:26:09 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  ci_session=926c03a3e5d3a7e47bfbff86576279814bc84928;
+                  expires=Sat, 21-Oct-2023 17:26:09 GMT; Max-Age=7200; path=/;
+                  HttpOnly
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: The Email field must contain a unique value.
+                      username:
+                        type: string
+                        example: >-
+                          This username already exists. Please choose another
+                          one.
+                  message:
+                    type: string
+                    example: Validation rules violated
+              examples:
+                '400':
+                  value:
+                    errors:
+                      email: The Email field must contain a unique value.
+                      username: This username already exists. Please choose another one.
+                    message: Validation rules violated     
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Login
+      description: Login
+      operationId: login
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  example: '123456'
+                username:
+                  type: string
+                  example: newUser0
+      responses:
+        '200':
+          description: '200'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '390'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:48:30 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  ci_session=0da396dd0d79c6b242f690cd72c1bc8e46bf1733;
+                  expires=Sat, 21-Oct-2023 17:48:30 GMT; Max-Age=7200; path=/;
+                  HttpOnly
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      auth:
+                        type: object
+                        properties:
+                          expires_at:
+                            type: string
+                            example: '2023-10-21 16:48:30'
+                          token:
+                            type: string
+                            example: >-
+                              eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiI2IiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3OTAzMzEwfQ.P7yuDXFepe-AuCr9aCmdgVZHzTjXCzeFtcFnzR8H_Jk
+                          type:
+                            type: string
+                            example: Bearer
+                      user:
+                        type: object
+                        properties:
+                          email:
+                            type: string
+                            example: user12@example.com
+                          id:
+                            type: string
+                            example: '6'
+                          image:
+                            type: string
+                            example: http://34.128.102.158/public/images/default.jpg
+                          name:
+                            type: string
+                            example: newUser1
+                  message:
+                    type: string
+                    example: Success login
+              examples:
+                '200':
+                  value:
+                    data:
+                      auth:
+                        expires_at: '2023-10-21 16:48:30'
+                        token: >-
+                          eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiI2IiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3OTAzMzEwfQ.P7yuDXFepe-AuCr9aCmdgVZHzTjXCzeFtcFnzR8H_Jk
+                        type: Bearer
+                      user:
+                        email: user12@example.com
+                        id: '6'
+                        image: http://34.128.102.158/public/images/default.jpg
+                        name: newUser1
+                    message: Success login
+        '400':
+          description: '400'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: close
+            Content-Length:
+              schema:
+                type: string
+                example: '53'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:48:49 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items: {}
+                    example: []
+                  message:
+                    type: string
+                    example: Wrong username or password.
+              examples:
+                '400':
+                  value:
+                    errors: []
+                    message: Wrong username or password.
+  /auth/logout:
+    post:
+      tags:
+        - Auth
+      summary: Logout
+      description: Logout
+      operationId: logout
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  example: '123456'
+                username:
+                  type: string
+                  example: newUser1
+      responses:
+        '200':
+          description: '200'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '40'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:49:08 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                    example: null
+                  message:
+                    type: string
+                    example: Success logout
+              examples:
+                '200':
+                  value:
+                    data: null
+                    message: Success logout
+      security:
+        - bearerAuth: []
+  /auth/reGenToken:
+    post:
+      tags:
+        - Auth
+      summary: ReGenToken
+      description: ReGenToken
+      operationId: regentoken
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: newUser1
+      responses:
+        '200':
+          description: '200'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '188'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:49:21 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    example: >-
+                      eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiI2IiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3OTAzMzYyfQ.-NuW1zLkW5Lfieh41rLBIfLPjeLKSUZZGGZfCfymtAY
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                '200':
+                  value:
+                    access_token: >-
+                      eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiI2IiwidXNlcm5hbWUiOiJuZXdVc2VyMSIsIkFQSV9USU1FIjoxNjk3OTAzMzYyfQ.-NuW1zLkW5Lfieh41rLBIfLPjeLKSUZZGGZfCfymtAY
+                    status: true
+      security:
+        - bearerAuth: []
+  /categories:
+    get:
+      tags:
+        - Category
+      summary: Get All Categories
+      description: Get All Categories
+      operationId: getAllCategories
+      responses:
+        '200':
+          description: '200'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '143'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:52:48 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        category_id:
+                          type: string
+                          example: '6'
+                        category_name:
+                          type: string
+                          example: Jeans
+                    example:
+                      - category_id: '6'
+                        category_name: Jeans
+                      - category_id: '7'
+                        category_name: T-Shirt
+                  message:
+                    type: string
+                    example: Category fetched successfully.
+              examples:
+                '200':
+                  value:
+                    data:
+                      - category_id: '6'
+                        category_name: Jeans
+                      - category_id: '7'
+                        category_name: T-Shirt
+                    message: Category fetched successfully.
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Category
+      summary: Create Category
+      description: Create Category
+      operationId: createCategory
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                category_name:
+                  type: string
+                  example: Clothes
+                price:
+                  type: string
+                  example: '45.00'
+      responses:
+        '201':
+          description: '200'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '97'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:53:27 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      category_id:
+                        type: string
+                        example: '8'
+                      category_name:
+                        type: string
+                        example: Clothes
+                  message:
+                    type: string
+                    example: Category created successfully.
+              examples:
+                '200':
+                  value:
+                    data:
+                      category_id: '8'
+                      category_name: Clothes
+                    message: Category created successfully.
+      security:
+        - bearerAuth: []
+  /categories/{id}:
+    get:
+      tags:
+        - Category
+      summary: Get Category
+      description: Get Category
+      operationId: getCategory
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the item to retrieve
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: '200'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '95'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:53:10 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=98
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      category_id:
+                        type: string
+                        example: '6'
+                      category_name:
+                        type: string
+                        example: Jeans
+                  message:
+                    type: string
+                    example: Category fetched successfully.
+              examples:
+                '200':
+                  value:
+                    data:
+                      category_id: '6'
+                      category_name: Jeans
+                    message: Category fetched successfully.
+      security:
+        - bearerAuth: []
+    put:
+      tags:
+        - Category
+      summary: Update Category
+      description: Update Category
+      operationId: updateCategory
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the item to retrieve
+          schema:
+            type: integer
+        - name: category_name
+          in: header
+          schema:
+            type: string
+            example: Jeans
+        - name: price
+          in: header
+          schema:
+            type: string
+            example: '120.00'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                category_name:
+                  type: string
+                  example: hello
+      responses:
+        '200':
+          description: Update Category
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '95'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:54:11 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      category_id:
+                        type: string
+                        example: '8'
+                      category_name:
+                        type: string
+                        example: Jeans
+                  message:
+                    type: string
+                    example: Category updated successfully.
+              examples:
+                Update Category:
+                  value:
+                    data:
+                      category_id: '8'
+                      category_name: Jeans
+                    message: Category updated successfully.
+      security:
+        - bearerAuth: []
+    delete:
+      tags:
+        - Category
+      summary: Delete Category
+      description: Delete Category
+      operationId: deleteCategory
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the item to retrieve
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: '200'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '56'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:54:26 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  ci_session=b8b4cda3b3917bf2c92ecc978b21d9561c185d4c;
+                  expires=Sat, 21-Oct-2023 17:54:26 GMT; Max-Age=7200; path=/;
+                  HttpOnly
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                    example: null
+                  message:
+                    type: string
+                    example: Category deleted successfully.
+              examples:
+                '200':
+                  value:
+                    data: null
+                    message: Category deleted successfully.
+      security:
+        - bearerAuth: []
+  /products:
+    get:
+      tags:
+        - Product
+      summary: Get All Products
+      description: Get All Products
+      operationId: getAllProducts
+      responses:
+        '200':
+          description: '200'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '424'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:54:43 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        category_id:
+                          type: string
+                          example: '4'
+                        created_at:
+                          type: string
+                          example: '2023-10-15 05:09:52'
+                        description:
+                          type: string
+                          example: Test Description
+                        price:
+                          type: string
+                          example: '500.00'
+                        product_id:
+                          type: string
+                          example: '5'
+                        product_name:
+                          type: string
+                          example: Kemaja Putih
+                        quantity:
+                          type: string
+                          example: '10'
+                        updated_at:
+                          nullable: true
+                          example: null
+                    example:
+                      - category_id: '4'
+                        created_at: '2023-10-15 05:09:52'
+                        description: Test Description
+                        price: '500.00'
+                        product_id: '5'
+                        product_name: Kemaja Putih
+                        quantity: '10'
+                        updated_at: null
+                      - category_id: '5'
+                        created_at: '2023-10-15 05:10:17'
+                        description: Test Description
+                        price: '500.00'
+                        product_id: '6'
+                        product_name: Kemeja Hitam
+                        quantity: '10'
+                        updated_at: null
+                  message:
+                    type: string
+                    example: Product fetched successfully.
+              examples:
+                '200':
+                  value:
+                    data:
+                      - category_id: '4'
+                        created_at: '2023-10-15 05:09:52'
+                        description: Test Description
+                        price: '500.00'
+                        product_id: '5'
+                        product_name: Kemaja Putih
+                        quantity: '10'
+                        updated_at: null
+                      - category_id: '5'
+                        created_at: '2023-10-15 05:10:17'
+                        description: Test Description
+                        price: '500.00'
+                        product_id: '6'
+                        product_name: Kemeja Hitam
+                        quantity: '10'
+                        updated_at: null
+                    message: Product fetched successfully.
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Product
+      summary: Create Product
+      description: Create Product
+      operationId: createProduct
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                category_id:
+                  type: string
+                  example: '5'
+                description:
+                  type: string
+                  example: Test Description
+                price:
+                  type: string
+                  example: '500'
+                product_name:
+                  type: string
+                  example: Chowmin
+                quantity:
+                  type: string
+                  example: '10'
+      responses:
+        '201':
+          description: '201'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '231'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:55:20 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      category_id:
+                        type: string
+                        example: '5'
+                      created_at:
+                        type: string
+                        example: '2023-10-21 15:55:21'
+                      description:
+                        type: string
+                        example: Test Description
+                      price:
+                        type: string
+                        example: '500.00'
+                      product_id:
+                        type: string
+                        example: '7'
+                      product_name:
+                        type: string
+                        example: Chowmin
+                      quantity:
+                        type: string
+                        example: '10'
+                      updated_at:
+                        nullable: true
+                        example: null
+                  message:
+                    type: string
+                    example: Product created successfully.
+              examples:
+                '201':
+                  value:
+                    data:
+                      category_id: '5'
+                      created_at: '2023-10-21 15:55:21'
+                      description: Test Description
+                      price: '500.00'
+                      product_id: '7'
+                      product_name: Chowmin
+                      quantity: '10'
+                      updated_at: null
+                    message: Product created successfully.
+      security:
+        - bearerAuth: []
+  /products/{id}:
+    get:
+      tags:
+        - Product
+      summary: Get Product
+      description: Get Product
+      operationId: getProduct
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the item to retrieve
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: '200'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '236'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:55:06 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      category_id:
+                        type: string
+                        example: '5'
+                      created_at:
+                        type: string
+                        example: '2023-10-15 05:10:17'
+                      description:
+                        type: string
+                        example: Test Description
+                      price:
+                        type: string
+                        example: '500.00'
+                      product_id:
+                        type: string
+                        example: '6'
+                      product_name:
+                        type: string
+                        example: Kemeja Hitam
+                      quantity:
+                        type: string
+                        example: '10'
+                      updated_at:
+                        nullable: true
+                        example: null
+                  message:
+                    type: string
+                    example: Product fetched successfully.
+              examples:
+                '200':
+                  value:
+                    data:
+                      category_id: '5'
+                      created_at: '2023-10-15 05:10:17'
+                      description: Test Description
+                      price: '500.00'
+                      product_id: '6'
+                      product_name: Kemeja Hitam
+                      quantity: '10'
+                      updated_at: null
+                    message: Product fetched successfully.
+      security:
+        - bearerAuth: []
+    put:
+      tags:
+        - Product
+      summary: Update Product
+      description: Update Product
+      operationId: updateProduct
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the item to retrieve
+          schema:
+            type: integer
+        - name: product_name
+          in: header
+          schema:
+            type: string
+            example: Bhuna Chicken
+        - name: category_id
+          in: header
+          schema:
+            type: string
+            example: '4'
+        - name: price
+          in: header
+          schema:
+            type: string
+            example: '100'
+        - name: quantity
+          in: header
+          schema:
+            type: string
+            example: '1000'
+        - name: description
+          in: header
+          schema:
+            type: string
+            example: Update description
+      responses:
+        '200':
+          description: '200'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '241'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:55:40 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      category_id:
+                        type: string
+                        example: '4'
+                      created_at:
+                        type: string
+                        example: '2023-10-21 15:55:21'
+                      description:
+                        type: string
+                        example: Update description
+                      price:
+                        type: string
+                        example: '100.00'
+                      product_id:
+                        type: string
+                        example: '7'
+                      product_name:
+                        type: string
+                        example: Bhuna Chicken
+                      quantity:
+                        type: string
+                        example: '1000'
+                      updated_at:
+                        nullable: true
+                        example: null
+                  message:
+                    type: string
+                    example: Product updated successfully.
+              examples:
+                '200':
+                  value:
+                    data:
+                      category_id: '4'
+                      created_at: '2023-10-21 15:55:21'
+                      description: Update description
+                      price: '100.00'
+                      product_id: '7'
+                      product_name: Bhuna Chicken
+                      quantity: '1000'
+                      updated_at: null
+                    message: Product updated successfully.
+      security:
+        - bearerAuth: []
+    delete:
+      tags:
+        - Product
+      summary: Delete Product
+      description: Delete Product
+      operationId: deleteProduct
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the item to retrieve
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: '200'
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store, no-cache, must-revalidate
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Content-Length:
+              schema:
+                type: string
+                example: '56'
+            Date:
+              schema:
+                type: string
+                example: Sat, 21 Oct 2023 15:55:58 GMT
+            Expires:
+              schema:
+                type: string
+                example: Thu, 19 Nov 1981 08:52:00 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.56 (Debian)
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.0.30
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                    example: null
+                  message:
+                    type: string
+                    example: Category deleted successfully.
+              examples:
+                '200':
+                  value:
+                    data: null
+                    message: Category deleted successfully.
+      security:
+        - bearerAuth: []
+    
+tags:
+  - name: Auth
+  - name: Category
+  - name: Product
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  
+
