@@ -5,7 +5,7 @@ info:
   contact: {}
 
 servers:
-  - url: http://tugas-16.rizalord.xyz/api/v1
+  - url: https://tugas-16.rizalord.xyz/api/v1
 
 paths:
   /auth/register:
