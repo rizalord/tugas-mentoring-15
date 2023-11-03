@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'db',
+	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => 'secretpassword321',
-	'database' => 'fswd_rest_api',
+	'password' => '',
+	'database' => 'fswd_rest_api_2',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

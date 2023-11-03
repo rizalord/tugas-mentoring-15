@@ -55,19 +55,39 @@ $route['translate_uri_dashes'] = FALSE;
 
 /* API */
 
+// Version 1
 $route['api/v1'] = 'api/Welcome/index';
 
-$route['api/v1/auth/register'] = 'api/User/register';
-$route['api/v1/auth/login'] = 'api/User/login';
-$route['api/v1/auth/logout'] = 'api/User/logout';
-$route['api/v1/auth/reGenToken'] = 'api/Token/reGenToken';
+$route['api/v1/auth/register'] = 'api/v1/User/register';
+$route['api/v1/auth/login'] = 'api/v1/User/login';
+$route['api/v1/auth/logout'] = 'api/v1/User/logout';
+$route['api/v1/auth/reGenToken'] = 'api/v1/Token/reGenToken';
 
-$route['api/v1/categories'] = 'api/Category';
-$route['api/v1/categories/(:any)'] = 'api/Category/$1';
-$route['api/v1/categories/(:num)']['PUT'] = 'api/Category/$1';
-$route['api/v1/categories/(:num)']['DELETE'] = 'api/Category/$1';
+$route['api/v1/categories'] = 'api/v1/Category';
+$route['api/v1/categories/(:any)'] = 'api/v1/Category/$1';
+$route['api/v1/categories/(:num)']['PUT'] = 'api/v1/Category/$1';
+$route['api/v1/categories/(:num)']['DELETE'] = 'api/v1/Category/$1';
 
-$route['api/v1/products'] = 'api/Product';
-$route['api/v1/products/(:any)'] = 'api/Product/$1';
-$route['api/v1/products/(:num)']['PUT'] = 'api/Product/$1';
-$route['api/v1/products/(:num)']['DELETE'] = 'api/Product/$1';
+$route['api/v1/products'] = 'api/v1/Product';
+$route['api/v1/products/(:any)'] = 'api/v1/Product/$1';
+$route['api/v1/products/(:num)']['PUT'] = 'api/v1/Product/$1';
+$route['api/v1/products/(:num)']['DELETE'] = 'api/v1/Product/$1';
+
+// Version 2
+$route['api/v2'] = 'api/Welcome/index';
+
+$route['api/v2/auth/register'] = 'api/v2/User/register';
+$route['api/v2/auth/login'] = 'api/v2/User/login';
+$route['api/v2/auth/logout'] = 'api/v2/User/logout';
+$route['api/v2/auth/reGenToken'] = 'api/v2/Token/reGenToken';
+
+$route['api/v2/categories'] = 'api/v2/Category';
+$route['api/v2/categories/(:any)'] = 'api/v2/Category/$1';
+$route['api/v2/categories/(:num)']['PUT'] = 'api/v2/Category/$1';
+$route['api/v2/categories/(:num)']['DELETE'] = 'api/v2/Category/$1';
+
+$route['api/v2/products'] = 'api/v2/Product';
+$route['api/v2/products/(:any)'] = 'api/v2/Product/$1';
+$route['api/v2/products/(:num)']['PUT'] = 'api/v2/Product/$1';
+$route['api/v2/products/(:num)']['DELETE'] = 'api/v2/Product/$1';
+$route['api/v2/products/(:any)/ingredients'] = 'api/v2/ProductIngredient/$1';
