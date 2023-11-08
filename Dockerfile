@@ -12,14 +12,14 @@ RUN apt-get update && apt-get install -y \
 # Install ekstensi GD dan mysqli
 RUN docker-php-ext-configure gd && docker-php-ext-install gd mysqli
 
-# # Aktifkan mod_rewrite untuk Apache
-# RUN a2enmod rewrite
+# Aktifkan mod_rewrite untuk Apache
+RUN a2enmod rewrite
 
-# # Izinkan header modul Apache
-# RUN a2enmod headers
+# Izinkan header modul Apache
+RUN a2enmod headers
 
-RUN cp /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/ && \
-    cp /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/
+# Restart Apache
+RUN service apache2 restart
 
 # Copy kode CodeIgniter ke dalam container
 COPY . /var/www/html/
